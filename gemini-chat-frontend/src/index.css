@@ -1,0 +1,263 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom Font */
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Container */
+.gembot-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  animation: fade-in 0.5s ease-in-out;
+}
+
+/* Header */
+.gembot-header {
+  background: linear-gradient(90deg, #1a56db, #1d4ed8); /* Gradient background */
+  padding: 20px;
+  border-radius: 8px; /* Rounded corners */
+  margin-bottom: 20px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center align items vertically */
+  transition: all 0.3s ease; /* Smooth transitions for all properties */
+}
+
+.gembot-title {
+  font-size: 2.5rem; /* Larger font size */
+  font-weight: bold;
+  color: #ffffff; /* White text */
+  display: flex;
+  align-items: center; /* Center align items vertically */
+  animation: slide-down 0.5s ease-out; /* Slide-down animation */
+}
+
+.gembot-icon {
+  margin-right: 10px; /* Space between icon and text */
+}
+
+.gembot-subtitle {
+  color: #e0e7ff; /* Light blue text */
+  margin-top: 5px;
+  font-size: 1.1rem; /* Slightly larger text */
+}
+
+/* Input Container */
+.gembot-input-container {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  border: 2px solid #e5e7eb; /* Border */
+  border-radius: 8px; /* Rounded corners */
+  padding: 10px; /* Padding */
+  background-color: #ffffff; /* White background */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Shadow */
+  transition: all 0.3s ease; /* Smooth transitions */
+  animation: fade-in 0.5s ease-in-out; /* Fade-in animation */
+}
+
+.gembot-input {
+  flex: 1;
+  padding: 15px 20px; /* Increased padding */
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gembot-input::placeholder {
+  color: #888;
+  font-size: large;
+  font-style: italic;
+}
+
+.gembot-input:focus {
+  border-color: #1a56db; /* Accent color on focus */
+  box-shadow: 0 0 5px rgba(26, 86, 219, 0.5); /* Focus ring */
+  outline: none;
+}
+
+/* Button */
+.gembot-button {
+  background-color: #2563eb;
+  color: white;
+  padding: 15px 30px; /* Larger padding */
+  border: none;
+  border-radius: 8px; /* Rounded corners */
+  cursor: pointer;
+  font-weight: 600;
+  transition: transform 0.2s, box-shadow 0.2s, background 0.3s ease;
+  animation: pulse 1.5s infinite; /* Pulse animation */
+}
+
+.gembot-button:hover {
+  background-color: #1d4ed8;
+  transform: scale(1.05); /* Slightly enlarge on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Shadow */
+}
+
+.gembot-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.5); /* Focus ring */
+}
+
+.gembot-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Response Container */
+.response-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Space between messages */
+  margin: 20px 0;
+  padding: 10px; /* Padding around the container */
+  background-color: #f9fafb; /* Light grey background */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Shadow */
+  transition: all 0.3s ease; /* Smooth transitions */
+}
+
+/* Response Card */
+.response-card {
+  background: white;
+  padding: 20px; /* Increased padding */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  align-self: flex-start; /* Align messages to the left */
+  max-width: 70%;
+  word-wrap: break-word;
+  transition: transform 0.3s, box-shadow 0.3s;
+  animation: card-in 0.5s ease; /* Card entrance animation */
+}
+
+.response-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Shadow on hover */
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Smooth transitions */
+}
+
+/* User Message */
+.response-card.user {
+  background: #e0f2fe; /* Light blue background for user messages */
+  align-self: flex-end; /* Align user messages to the right */
+  animation: slide-in 0.3s ease-out; /* Slide-in animation */
+}
+
+/* Code Snippet */
+.code-snippet {
+  background: #f1f5f9; /* Very light blue background */
+  padding: 10px;
+  border-radius: 5px;
+  margin: 10px 0;
+  font-family: 'Courier New', Courier, monospace; /* Monospaced font */
+}
+
+/* Loader */
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Link Hover Effect */
+a {
+  color: #2563eb;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #1d4ed8;
+}
+
+/* Animations */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slide-down {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-in {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes card-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.5);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(37, 99, 235, 0.3);
+  }
+}
+
+/* Footer */
+.gembot-footer {
+  background-color: #1a56db;
+  color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  margin-top: 20px;
+  text-align: center;
+  box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.gembot-footer p {
+  margin: 0 0 10px;
+}
+
+.gembot-footer .social-icons a {
+  color: #ffffff;
+  margin: 0 10px;
+  transition: color 0.3s ease;
+}
+
+.gembot-footer .social-icons a:hover {
+  color: #e0e7ff;
+}
+
+/* H3 Heading */
+h3 {
+  text-align: center;
+  color: #1a56db; /* Accent color */
+}

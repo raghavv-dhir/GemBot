@@ -12,7 +12,7 @@
 	<artifactId>gemini-chat</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>gemini-chat</name>
-	<description>Chat Bot of Gemini AI</description>
+	<description>Gemini API Chatbot</description>
 	<url/>
 	<licenses>
 		<license/>

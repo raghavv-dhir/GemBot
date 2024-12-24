@@ -1,13 +1,15 @@
 package com.ai.gemini_chat;
+
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 
 import java.util.Map;
+import java.util.Objects;
 
 @Service
 public class QnAService {
-    //Access to APIKey and URL [Gemini]
+    //Access to apikey and url
     @Value("${gemini.api.url}")
     private String geminiApiUrl;
 
@@ -20,17 +22,22 @@ public class QnAService {
         this.webClient = webClient.build();
     }
 
+
     public String getAnswer(String question) {
-        //construct the request payload
+        //construct request payload
         Map<String, Object> requestBody = Map.of(
                 "contents", new Object[] {
-                        Map.of("parts", new Object[] {
-                                Map.of("text", question)
-                        })
+                        Map.of(
+                                "parts", new Object[] {
+                                        Map.of("text", question)
+                                }
+                        )
                 }
-        );  //format: {"contents": [{"parts":[{"text": "QUESTION"}]}]}
+        );
 
-        // Make API call
+
+        //Make API call
+
         String response = webClient.post()
                 .uri(geminiApiUrl + geminiApiKey)
                 .header("Content-Type", "application/json")
