@@ -2,262 +2,229 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Custom Font */
-body {
-  font-family: 'Poppins', sans-serif;
+:root {
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
 }
 
-/* Container */
+body {
+  font-family: var(--font-sans);
+  background-color: #f8fafc;
+  color: #334155;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+* {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+::selection {
+  background-color: #94a3b8;
+  color: white;
+}
+
+/* Custom focus outline */
+*:focus-visible {
+  outline: 2px solid #64748b;
+  outline-offset: 2px;
+}
+
+/* Smooth transitions */
+.transition-all {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--background);
+  color: var(--text);
+  line-height: 1.6;
+}
+
 .gembot-container {
   max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
-  animation: fade-in 0.5s ease-in-out;
+  margin: 1rem auto;
+  padding: 0 1rem;
 }
 
-/* Header */
+/* Sleeker Header */
 .gembot-header {
-  background: linear-gradient(90deg, #1a56db, #1d4ed8); /* Gradient background */
-  padding: 20px;
-  border-radius: 8px; /* Rounded corners */
-  margin-bottom: 20px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* Center align items vertically */
-  transition: all 0.3s ease; /* Smooth transitions for all properties */
+  background: linear-gradient(to right, #4A4E69, #595E7C);
+  padding: 1.5rem;
+  border-radius: 12px;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
 .gembot-title {
-  font-size: 2.5rem; /* Larger font size */
-  font-weight: bold;
-  color: #ffffff; /* White text */
+  font-size: 2rem;
+  font-weight: 600;
+  color: #ffffff;
   display: flex;
-  align-items: center; /* Center align items vertically */
-  animation: slide-down 0.5s ease-out; /* Slide-down animation */
-}
-
-.gembot-icon {
-  margin-right: 10px; /* Space between icon and text */
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 0.25rem;
+  letter-spacing: -0.02em;
 }
 
 .gembot-subtitle {
-  color: #e0e7ff; /* Light blue text */
-  margin-top: 5px;
-  font-size: 1.1rem; /* Slightly larger text */
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.95rem;
+  font-weight: 400;
 }
 
-/* Input Container */
+/* Refined Input Area */
 .gembot-input-container {
+  background: var(--card);
+  padding: 0.75rem;
+  border-radius: 12px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
   display: flex;
-  gap: 10px;
-  margin-bottom: 20px;
-  border: 2px solid #e5e7eb; /* Border */
-  border-radius: 8px; /* Rounded corners */
-  padding: 10px; /* Padding */
-  background-color: #ffffff; /* White background */
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Shadow */
-  transition: all 0.3s ease; /* Smooth transitions */
-  animation: fade-in 0.5s ease-in-out; /* Fade-in animation */
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+  transition: all 0.2s ease;
+  border: 1px solid #E5E7EB;
 }
 
 .gembot-input {
   flex: 1;
-  padding: 15px 20px; /* Increased padding */
-  border: 2px solid #e5e7eb;
+  padding: 0.75rem 1rem;
+  border: 1px solid #E5E7EB;
   border-radius: 8px;
-  font-size: 1rem;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-.gembot-input::placeholder {
-  color: #888;
-  font-size: large;
-  font-style: italic;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+  background-color: #F9FAFB;
 }
 
 .gembot-input:focus {
-  border-color: #1a56db; /* Accent color on focus */
-  box-shadow: 0 0 5px rgba(26, 86, 219, 0.5); /* Focus ring */
   outline: none;
+  border-color: var(--secondary);
+  background-color: #FFFFFF;
+  box-shadow: 0 0 0 2px rgba(74, 78, 105, 0.1);
 }
 
-/* Button */
 .gembot-button {
-  background-color: #2563eb;
+  background: var(--primary);
   color: white;
-  padding: 15px 30px; /* Larger padding */
-  border: none;
-  border-radius: 8px; /* Rounded corners */
-  cursor: pointer;
-  font-weight: 600;
-  transition: transform 0.2s, box-shadow 0.2s, background 0.3s ease;
-  animation: pulse 1.5s infinite; /* Pulse animation */
-}
-
-.gembot-button:hover {
-  background-color: #1d4ed8;
-  transform: scale(1.05); /* Slightly enlarge on hover */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Shadow */
-}
-
-.gembot-button:focus {
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.5); /* Focus ring */
-}
-
-.gembot-button:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
-
-/* Response Container */
-.response-container {
-  display: flex;
-  flex-direction: column;
-  gap: 10px; /* Space between messages */
-  margin: 20px 0;
-  padding: 10px; /* Padding around the container */
-  background-color: #f9fafb; /* Light grey background */
-  border-radius: 8px; /* Rounded corners */
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Shadow */
-  transition: all 0.3s ease; /* Smooth transitions */
-}
-
-/* Response Card */
-.response-card {
-  background: white;
-  padding: 20px; /* Increased padding */
-  border-radius: 8px; /* Rounded corners */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  align-self: flex-start; /* Align messages to the left */
-  max-width: 70%;
-  word-wrap: break-word;
-  transition: transform 0.3s, box-shadow 0.3s;
-  animation: card-in 0.5s ease; /* Card entrance animation */
-}
-
-.response-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Shadow on hover */
-  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Smooth transitions */
-}
-
-/* User Message */
-.response-card.user {
-  background: #e0f2fe; /* Light blue background for user messages */
-  align-self: flex-end; /* Align user messages to the right */
-  animation: slide-in 0.3s ease-out; /* Slide-in animation */
-}
-
-/* Code Snippet */
-.code-snippet {
-  background: #f1f5f9; /* Very light blue background */
-  padding: 10px;
-  border-radius: 5px;
-  margin: 10px 0;
-  font-family: 'Courier New', Courier, monospace; /* Monospaced font */
-}
-
-/* Loader */
-.loader {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
-
-/* Link Hover Effect */
-a {
-  color: #2563eb;
-  transition: color 0.3s ease;
-}
-
-a:hover {
-  color: #1d4ed8;
-}
-
-/* Animations */
-@keyframes fade-in {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes slide-down {
-  from {
-    transform: translateY(-20px);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-@keyframes slide-in {
-  from {
-    transform: translateX(100%);
-    opacity: 0;
-  }
-  to {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-
-@keyframes card-in {
-  from {
-    opacity: 0;
-    transform: scale(0.95);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-@keyframes pulse {
-  0%, 100% {
-    transform: scale(1);
-    box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.5);
-  }
-  50% {
-    transform: scale(1.05);
-    box-shadow: 0 0 20px rgba(37, 99, 235, 0.3);
-  }
-}
-
-/* Footer */
-.gembot-footer {
-  background-color: #1a56db;
-  color: #ffffff;
-  padding: 20px;
+  padding: 0.75rem 1.5rem;
   border-radius: 8px;
-  margin-top: 20px;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+  min-width: 100px;
+}
+
+.gembot-button:hover:not(:disabled) {
+  background: var(--secondary);
+  transform: translateY(-1px);
+}
+
+/* Response Area */
+.response-container {
+  background: var(--card);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+  border: 1px solid #E5E7EB;
+}
+
+.response-header {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: var(--text);
+  margin-bottom: 1rem;
+  letter-spacing: -0.01em;
+}
+
+.response-content {
+  color: var(--text-light);
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+/* Metadata Section */
+.metadata-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+  padding: 1rem;
+  background: #F9FAFB;
+  border-radius: 8px;
+  margin-top: 1.5rem;
+}
+
+.metadata-item {
   text-align: center;
-  box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.1);
 }
 
-.gembot-footer p {
-  margin: 0 0 10px;
+.metadata-label {
+  color: var(--text-light);
+  font-size: 0.8rem;
+  margin-bottom: 0.25rem;
+  font-weight: 400;
 }
 
-.gembot-footer .social-icons a {
-  color: #ffffff;
-  margin: 0 10px;
-  transition: color 0.3s ease;
+.metadata-value {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--text);
 }
 
-.gembot-footer .social-icons a:hover {
-  color: #e0e7ff;
+/* Citations */
+.citations {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #E5E7EB;
 }
 
-/* H3 Heading */
-h3 {
+.citation-title {
+  font-weight: 500;
+  color: var(--text);
+  margin-bottom: 0.75rem;
+  font-size: 1.1rem;
+}
+
+.citation-link {
+  color: var(--text-light);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.2s ease;
+}
+
+.citation-link:hover {
+  color: var(--primary);
+}
+
+/* Loading State */
+.loading-container {
   text-align: center;
-  color: #1a56db; /* Accent color */
+  padding: 2rem;
+  color: var(--text-light);
+  font-size: 0.95rem;
+}
+
+/* Smooth Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.2s ease forwards;
 }
